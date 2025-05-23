@@ -1,6 +1,6 @@
 # Orchid-test
 
-## Docker Development Environment
+## Docker Development Environment with Orchid Platform
 
 This repository includes a complete Docker-based development environment with PHP-FPM, Nginx, MySQL, and Valkey (Redis fork) for Orchid Platform evaluation.
 
@@ -19,7 +19,7 @@ This repository includes a complete Docker-based development environment with PH
 
 2. Start the Docker containers:
    ```
-   docker-compose up -d
+   docker compose up -d
    ```
 
 3. Access the Laravel application in your browser:
@@ -34,6 +34,15 @@ This repository includes a complete Docker-based development environment with PH
    Login with:
    - Email: admin@admin.com
    - Password: password
+
+### Orchid Platform Features
+
+The Orchid Platform is integrated and provides:
+
+1. **Admin Dashboard**: A comprehensive admin interface
+2. **User Management**: Manage users and roles 
+3. **Form Builder**: Create complex forms with 40+ field types
+4. **Sample Screen**: A custom screen showing form functionality at `/admin/sample`
 
 ### Environment Details
 
@@ -55,15 +64,27 @@ This repository includes a complete Docker-based development environment with PH
 - Host: `localhost` (from host) or `valkey` (from containers)
 - Port: `6379`
 
-### Orchid Platform
+### Docker Commands
 
-The [Orchid Platform](https://orchid.software/) is a Laravel admin panel builder that allows you to quickly create administrative applications. Key features include:
+1. Start all services:
+   ```bash
+   docker compose up -d
+   ```
 
-- Screen builder with reusable components
-- Form builder with various field types
-- Table builder with filtering and sorting
-- Access control system
-- CRUD operations
+2. Stop all services:
+   ```bash
+   docker compose down
+   ```
+
+3. Access the PHP container:
+   ```bash
+   docker compose exec app bash
+   ```
+
+4. Run Artisan commands:
+   ```bash
+   docker compose exec app php /var/www/laravel/artisan <command>
+   ```
 
 ### Troubleshooting
 
@@ -71,15 +92,15 @@ If you encounter any issues:
 
 1. Check container logs:
    ```
-   docker-compose logs
+   docker compose logs
    ```
 
 2. Verify all containers are running:
    ```
-   docker-compose ps
+   docker compose ps
    ```
 
 3. Restart all containers:
    ```
-   docker-compose restart
+   docker compose restart
    ```
