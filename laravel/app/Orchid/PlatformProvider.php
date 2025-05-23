@@ -40,6 +40,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route(config('platform.index')),
 
             Menu::make('Sample Screen')
+                ->icon('bs.file-earmark-text')
+                ->route('platform.sample'),
+
+            Menu::make('Sample Screen')
                 ->icon('bs.collection')
                 ->route('platform.example')
                 ->badge(fn () => 6),
