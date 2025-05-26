@@ -82,6 +82,31 @@ class PlatformProvider extends OrchidServiceProvider
                 ->permission('platform.systems.roles')
                 ->divider(),
 
+            Menu::make('サンプルデータ管理')
+                ->title('サンプルデータ管理')
+                ->icon('bs.database'),
+
+            Menu::make('ユーザー管理')
+                ->icon('bs.person-badge')
+                ->route('platform.systems.tusers'),
+
+            Menu::make('ロール管理')
+                ->icon('bs.shield')
+                ->route('platform.systems.userroles'),
+
+            Menu::make('ユーザーロール管理')
+                ->icon('bs.people')
+                ->route('platform.systems.tuserroles'),
+
+            Menu::make('ユーザー設定管理')
+                ->icon('bs.gear')
+                ->route('platform.systems.tusersettings'),
+
+            Menu::make('ユーザーログ管理')
+                ->icon('bs.journal-text')
+                ->route('platform.systems.userlogs')
+                ->divider(),
+
             Menu::make('Documentation')
                 ->title('Docs')
                 ->icon('bs.box-arrow-up-right')
