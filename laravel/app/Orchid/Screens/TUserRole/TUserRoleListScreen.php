@@ -20,7 +20,8 @@ class TUserRoleListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'tuserroles' => TUserRole::filters(TUserRoleFiltersLayout::class)
+            'tuserroles' => TUserRole::with('role')
+                ->filters(TUserRoleFiltersLayout::class)
                 ->defaultSort('id', 'desc')
                 ->paginate(),
         ];
