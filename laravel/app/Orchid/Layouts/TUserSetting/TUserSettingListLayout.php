@@ -3,7 +3,6 @@
 namespace App\Orchid\Layouts\TUserSetting;
 
 use App\Models\TUserSetting;
-use App\Models\TUser;
 use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Actions\Button;
@@ -32,8 +31,7 @@ class TUserSettingListLayout extends Table
                 ->sort()
                 ->filter(TD::FILTER_NUMBER_RANGE)
                 ->render(function (TUserSetting $tusersetting) {
-                    $user = TUser::find($tusersetting->t_user_id);
-                    return $user ? $user->user_name : '未設定';
+                    return $tusersetting->user ? $tusersetting->user->user_name : '未設定';
                 }),
 
             TD::make('setting_key', '設定キー')

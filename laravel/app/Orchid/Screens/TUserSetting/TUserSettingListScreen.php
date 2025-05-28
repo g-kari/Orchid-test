@@ -20,7 +20,7 @@ class TUserSettingListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'tusersettings' => TUserSetting::filters(TUserSettingFiltersLayout::class)
+            'tusersettings' => TUserSetting::with('user')->filters(TUserSettingFiltersLayout::class)
                 ->defaultSort('id', 'desc')
                 ->paginate(),
         ];
