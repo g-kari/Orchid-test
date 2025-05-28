@@ -40,8 +40,7 @@ class TUserRoleListLayout extends Table
                 ->sort()
                 ->filter(TD::FILTER_NUMBER_RANGE)
                 ->render(function (TUserRole $tuserrole) {
-                    $role = MUserRole::find($tuserrole->m_user_role_id);
-                    return $role ? $role->role_name : '未設定';
+                    return $tuserrole->role ? $tuserrole->role->role_name : '未設定';
                 }),
 
             TD::make('created_at', '作成日時')
